@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Wallpaper RecSys | 壁纸推荐系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<canvas id="bg-canvas" class="wp-bg-canvas" aria-hidden="true"></canvas>
+<div class="app-root">
+    <header class="wp-header">
+        <div class="wp-header-left">
+            <div class="wp-logo">Wallpaper RecSys</div>
+            <div class="wp-tagline">基于 CLIP 的智能壁纸推荐</div>
+        </div>
+        <div class="wp-header-center">
+            <input id="search-input" class="wp-search-input"
+                   type="text" placeholder="搜索你想要的壁纸，如 “anime”、“nature”、“city night”...">
+            <div class="wp-model" title="切换推荐模型">
+                <span class="wp-model-label">模型</span>
+                <select id="model-select" class="wp-select">
+                    <option value="emb" selected>Embedding</option>
+                    <option value="itemcf">ItemCF</option>
+                    <option value="popularity">Popularity</option>
+                </select>
+            </div>
+            <button id="search-btn" class="wp-btn primary">搜索</button>
+        </div>
+        <div class="wp-header-right">
+            <button id="btn-for-you" class="wp-btn ghost">为你推荐</button>
+            <button id="btn-work" class="wp-btn ghost">工作场景</button>
+            <button id="btn-night" class="wp-btn ghost">夜间氛围</button>
+            <button id="btn-gaming" class="wp-btn ghost">游戏</button>
+            <button id="btn-reading" class="wp-btn ghost">阅读</button>
+            <button id="btn-sleep" class="wp-btn ghost">睡前</button>
+        </div>
+    </header>
+
+    <main class="wp-main">
+        <section class="wp-section">
+            <div class="wp-section-header">
+                <div class="wp-title-row">
+                    <h2 id="section-title">为你推荐</h2>
+                    <button id="btn-refresh-batch" class="wp-btn ghost wp-refresh">换一批</button>
+                </div>
+                <div class="wp-section-subtitle" id="section-subtitle">
+                    使用 CLIP 向量和少量历史评分，为你推荐可能喜欢的壁纸
+                </div>
+                <div class="wp-category-bar">
+                    <button class="wp-btn ghost" id="cat-all">全部</button>
+                    <button class="wp-btn ghost" id="cat-anime">动漫</button>
+                    <button class="wp-btn ghost" id="cat-nature">风景</button>
+                    <button class="wp-btn ghost" id="cat-city">城市</button>
+                    <button class="wp-btn ghost" id="cat-space">太空</button>
+                    <button class="wp-btn ghost" id="cat-abstract">抽象</button>
+                </div>
+            </div>
+            <div id="wallpaper-grid" class="wp-grid">
+                <!-- cards rendered by JS -->
+            </div>
+            <div id="empty-hint" class="wp-empty" style="display:none">
+                暂时没有找到合适的壁纸，可以换个关键词或场景再试试。
+            </div>
+        </section>
+    </main>
+
+    <div id="detail-overlay" class="wp-overlay" style="display:none">
+        <div class="wp-overlay-content">
+            <button id="overlay-close" class="wp-overlay-close">×</button>
+            <div id="overlay-main" class="wp-overlay-main">
+                <!-- filled by JS -->
+            </div>
+            <div class="wp-overlay-similar">
+                <h3>相似壁纸</h3>
+                <div id="similar-strip" class="wp-strip">
+                    <!-- similar cards -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./js/particles.js"></script>
+<script src="./js/wallpaper.js"></script>
+</body>
+</html>
+
+

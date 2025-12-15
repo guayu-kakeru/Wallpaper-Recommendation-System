@@ -4,7 +4,7 @@
 
 ---
 
-**Author**: 卦鱼kakeru & SakuraQ
+**Author**: 掛鱼kakeru & SakuraQ
 
 ---
 ![Project_demo](readme_data/project_demo.png)
@@ -315,5 +315,5 @@ python3 scripts/gen_synthetic_ratings.py --num_ratings 10000 --num_users 200 --s
 
 本项目为厦门大学信息学院学科实践3课程实践性质 Demo，参考 Sparrow RecSys 的分层思路实现。<br>
 
-**Author**: 卦鱼kakeru & SakuraQ
+**Author**: 掛鱼kakeru & SakuraQ
 
